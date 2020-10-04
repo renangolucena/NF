@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+
+                            <form class="needs-validation" novalidate>
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom03" style="color: white;">NF</label>
+                  <input type="text" name="nf" value="<?php echo $ultimo;?>"class="form-control" id="validationCustom03" placeholder="City" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                </div>
+               
+                <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label for="validationCustom05" style="color: white;">Produtos</label>
+                  <select name="produto_opcao" type="text" class="form-control form-control-lg" id="validationCustom05" placeholder="Zip" required>
+                  <option value="">Selecione Um Item</option>
+                  <?php
+                    $consulta = "SELECT * FROM produtos";
+                    foreach ($conexao -> query($consulta) as $linha) {
+                    ?>
+                    <option value="<?php echo $linha['id'];?>"><?php echo $linha['nome'];?></option>
+        
+                <?php 
+                    }
+                 ?>
+
+                    
+
+
+                  </select>
+                  <div class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                </div>
+                 <div class="col-md-3 mb-3">
+                  <label for="validationCustom04" style="color: white;">Quantidade</label>
+                  <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+              </div>
+             
+             <button class="login100-form-btn">
+                Criar Nota Fiscal
+            </button>
+            </form>
+
+            <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+            </script>
+                                
+
+                        </div>
+                    </div>
+                </div>
+    
+
+                          
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
